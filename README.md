@@ -22,7 +22,7 @@ The idea of this package, and some of the code, is based on the package from Pod
 
 **[DEMO Application](https://demo.ellaisys.com/cognito)**. You can try and register and login. For the first time, it will force the user to change password. The **[source code](https://github.com/ellaisys/demo_cognito_app)** of the demo application is also available of the GitHub.
 
-We decided to use it and contribute it to the community as a package, that encourages standarised use and a RAD tool for authentication using AWS Cognito.
+We decided to use it and contribute it to the community as a package, that encourages standardised use and a RAD tool for authentication using AWS Cognito.
 
 ## Features
 - [Registration and Confirmation E-Mail (Sign Up)](#registering-users)
@@ -37,7 +37,7 @@ We decided to use it and contribute it to the community as a package, that encou
 - Reset User Password
 - Confirm Sign Up
 - Easy API Token handling (uses the cache driver)
-- [DynamoDB support for Web Sessions and API Tokens (useful for server redundency OR multiple containers)](#storing-web-sessions-or-api-tokens-in-dynamodb-useful-for-multiservercontainer-implementation)
+- [DynamoDB support for Web Sessions and API Tokens (useful for server redundancy OR multiple containers)](#storing-web-sessions-or-api-tokens-in-dynamodb-useful-for-multiservercontainer-implementation)
 - Easy configuration of Token Expiry (Manage using the cognito console, no code or configurations needed)
 - Support for App Client without Secret
 - Support for Cognito Groups, including assigning a default group to a new user
@@ -105,7 +105,7 @@ to look the following:
     ],
 ```
 >[!IMPORTANT]
->This is a new feature that is released in V1.2.0 and shall work with Laravel 8.37 (with anonymous migration support). For verions below Laravel 8.37, this feature is disabled. You will need to update the **users** table migration and add the **sub** column (type:string, nullable:yes, index:yes).
+>This is a new feature that is released in V1.2.0 and shall work with Laravel 8.37 (with anonymous migration support). For versions below Laravel 8.37, this feature is disabled. You will need to update the **users** table migration and add the **sub** column (type:string, nullable:yes, index:yes).
 
 ### Database Migrations
 The AWS Cognito service provider registers its own database migration directory, so remember to migrate your database after installing the package. The AWS Cognito migrations will add a few columns to your **users** table:
@@ -269,7 +269,7 @@ We have made is very easy for anyone to use the default behaviour.
 1. You don't need to create an extra field to store the verification token.
 2. You don't have to bother about the Sessions or API tokens, they are managed for you. The session or token is managed via the standard mechanism of Laravel. You have the liberty to keep it where ever you want, no security loop holes.
 3. If you use the trait provided by us 'Ellaisys\Cognito\Auth\RegistersUsers', the code will be limited to just a few lines
-4. if you are using the Laravel scafolding, then make the password nullable in DB or drop it from schema. Passwords will be only managed by AWS Cognito.
+4. if you are using the Laravel scaffolding, then make the password nullable in DB or drop it from schema. Passwords will be only managed by AWS Cognito.
 
 ```php
     use Ellaisys\Cognito\Auth\RegistersUsers;
